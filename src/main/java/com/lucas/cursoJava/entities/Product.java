@@ -12,32 +12,40 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@RequiredArgsConstructor
-@Data()
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private String descripition;
+	private Double price;
+	private String imgUrl;
 
 	@Setter(AccessLevel.NONE)
 	@Transient
-	private Set<Product> products = new HashSet<>();
+	private Set<Category> categories = new HashSet<>();
 
-	public Category(Long id, String name) {
+	public Product(Long id, String name, String descripition, Double price, String imgUrl) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.descripition = descripition;
+		this.price = price;
+		this.imgUrl = imgUrl;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -46,7 +54,7 @@ public class Category implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Product other = (Product) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -62,6 +70,5 @@ public class Category implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 }
