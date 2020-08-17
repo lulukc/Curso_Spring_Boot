@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -29,7 +32,8 @@ public class Category implements Serializable {
 	private String name;
 
 	@Setter(AccessLevel.NONE)
-	@Transient
+	@ManyToMany(mappedBy = "categories")
+	@JsonIgnore
 	private Set<Product> products = new HashSet<>();
 
 	public Category(Long id, String name) {
@@ -37,7 +41,7 @@ public class Category implements Serializable {
 		this.id = id;
 		this.name = name;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,6 +66,5 @@ public class Category implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 }
