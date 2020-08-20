@@ -14,7 +14,7 @@ import com.lucas.cursoJava.entities.OrderItem;
 import com.lucas.cursoJava.entities.Payment;
 import com.lucas.cursoJava.entities.Product;
 import com.lucas.cursoJava.entities.User;
-import com.lucas.cursoJava.entities.enums.OrderStatus;
+import com.lucas.cursoJava.entities.enuns.OrderStatus;
 import com.lucas.cursoJava.repositories.CategoryRepository;
 import com.lucas.cursoJava.repositories.OrderItemRepository;
 import com.lucas.cursoJava.repositories.OrderRepository;

@@ -1,4 +1,4 @@
-package com.lucas.cursoJava.entities.enums;
+package com.lucas.cursoJava.entities.enuns;
 
 public enum OrderStatus {
 	WAITING_PAYMENT(1), 

@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.lucas.cursoJava.entities.enums.OrderStatus;
+import com.lucas.cursoJava.entities.enuns.OrderStatus;
 
 import lombok.AccessLevel;
 import lombok.Data;
